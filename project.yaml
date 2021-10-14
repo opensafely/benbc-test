@@ -10,3 +10,10 @@ actions:
     outputs:
       highly_sensitive:
         cohort: output/something
+
+  write_something_else:
+    run: python:latest -c 'import pathlib; pathlib.Path("output/something_else").touch()'
+    needs: [write_something]
+    outputs:
+      highly_sensitive:
+        cohort: output/something_else
